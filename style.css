@@ -1,64 +1,167 @@
 *{
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-*{
-    margin: 0;
-    padding: 0;
+body{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.con{
-    width: 100%;
-    height: 50vh;
-    position: absolute;
-    z-index: -1;
+section{
+  height: 100vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.button-box{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
+.bg-image{
+  opacity: 0.2;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
 }
 
-.back-button{
-    background: #3498db;
-    background-image: -webkit-linear-gradient(top, #3498db, #a2cde8);
-    background-image: -moz-linear-gradient(top, #3498db, #a2cde8);
-    background-image: -ms-linear-gradient(top, #3498db, #a2cde8);
-    background-image: -o-linear-gradient(top, #3498db, #a2cde8);
-    background-image: linear-gradient(to bottom, #3498db, #a2cde8);
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
-    border-radius: 28px;
-    text-shadow: 11px 26px 13px #666666;
-    -webkit-box-shadow: 7px 10px 15px #666666;
-    -moz-box-shadow: 7px 10px 15px #666666;
-    box-shadow: 7px 10px 15px #666666;
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 20px;
-    padding: 10px 20px 10px 20px;
-    border: solid #1f628d 5px;
-    text-decoration: none;
-   margin-top: 10rem;
-  align-self: center;
-
-
-  }
+.container{
+  width: 70%;
+  background: rgb(227, 255, 255, 0.6);
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0px 0px 20px black;
+  border-radius: 5%;
+  z-index: 10;
   
-  .back-button:hover{
-    background: #8fc3e3;
-    background-image: -webkit-linear-gradient(top, #8fc3e3, #3498db);
-    background-image: -moz-linear-gradient(top, #8fc3e3, #3498db);
-    background-image: -ms-linear-gradient(top, #8fc3e3, #3498db);
-    background-image: -o-linear-gradient(top, #8fc3e3, #3498db);
-    background-image: linear-gradient(to bottom, #8fc3e3, #3498db);
-    text-decoration: none;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.form-group{
+  width: 100%;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group input,
+.form-group textarea{
+  width: 100%;
+  padding: 0.3rem;
+  font-size: 1.6rem;
+
+}
+
+textarea{
+  resize: none;
+}
+
+button[type="submit"]{
+   
+	width: 20%;
+	text-align: center;
+	background: #3498db;
+	background-image: -webkit-linear-gradient(top, #3498db, #a2cde8);
+	background-image: -moz-linear-gradient(top, #3498db, #a2cde8);
+	background-image: -ms-linear-gradient(top, #3498db, #a2cde8);
+	background-image: -o-linear-gradient(top, #3498db, #a2cde8);
+	background-image: linear-gradient(to bottom, #3498db, #a2cde8);
+	-webkit-border-radius: 28;
+	-moz-border-radius: 28;
+	border-radius: 28px;
+	text-shadow: 11px 26px 13px #666666;
+	-webkit-box-shadow: 7px 10px 15px #666666;
+	-moz-box-shadow: 7px 10px 15px #666666;
+	box-shadow: 7px 10px 15px #666666;
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 20px;
+	padding: 10px 20px 10px 20px;
+	border: solid #1f628d 5px;
+	text-decoration: none;
+  margin-top: 1rem;
+}
+
+
+
+button[type="submit"]:hover {
+     background-image: radial-gradient(rgb(82, 172, 246), lightblue);
     transform: scale(1.2);
-  }
+    transition: all ease-in-out .5s;
+}
+
+button[type="submit"]:active {
+    transform: scale(.9);
+
+}
+
+#status{
+  position: absolute;
+  width: 40%;
+  text-align: center;
+  padding: 1rem;
+  z-index: 11;
+}
+
+#status.success{
   
-  .back-button:active{
-  transform: scale(.9);
+  background: lightgreen;
+  border-radius: 10px;
+  margin-top: 1rem;
+  font-size: 2rem;
+  animation: status 4s ease-in-out forwards;
+
+}
+
+#status.error{
+  background: red;
+  border-radius: 10px;
+  margin-top: 1rem;
+  font-size: 2rem;
+  animation: status 4s ease-in-out forwards;
+}
+
+@keyframes status{
+  0%{
+    opacity: 1;
+    pointer-events: all;
+
   }
+  90%{
+    opacity: 1;
+    pointer-events: all;
+  }
+  100%{
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+
+@media screen and (max-width: 992px) {
+
+  button[type="submit"]{
+    width: 80%;
+    
+  }
+
+
+}
+
+@media screen and (max-width: 500px){
+
+#status{
+  position: absolute;
+  width: 80%;
+  text-align: center;
+  padding: 1rem;
+  z-index: 11;
+}
+}
